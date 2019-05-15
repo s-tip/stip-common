@@ -1,0 +1,6 @@
+*.pyc
+stip-gv/
+stip-rs/
+stip-sns/
+stip-txs/
+cti-pattern-matcher/

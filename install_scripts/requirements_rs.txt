@@ -1,0 +1,17 @@
+django==1.10.6
+mongoengine==0.11.0
+pytz
+apscheduler
+requests
+IPy
+stix
+stix2-elevator==0.2.0
+libtaxii
+MySQL-python
+stix2-patterns==1.1.0
+stix2-slider==1.0.0
+python-decouple
+pymongo==2.8
+bleach
+pymisp
+Unipath

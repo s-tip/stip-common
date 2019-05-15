@@ -1,0 +1,6 @@
+psycopg2-binary
+xmltodict
+pbr
+pdfminer
+pymongo==2.8
+Unipath

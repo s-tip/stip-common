@@ -1,0 +1,12 @@
+dj-database-url
+Unipath
+bleach
+pdfminer.six
+pillow
+beautifulsoup4
+stix-validator
+pymongo==2.8
+stix2-slider==1.0.0
+reportlab
+jira
+taxii2-client
