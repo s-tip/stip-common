@@ -41,10 +41,10 @@ See the [wiki](https://github.com/s-tip/stip-common/wikis/home) for details.
 
 S-TIP SNS
 
-![S-TIP SNS](https://github.com/s-tip/stip-common/raw/ff4f1bb22e0a16b10aaa4bcb3c20373f1c2cc380/stip-sns.gif "S-TIP SNS")
+![S-TIP SNS](https://raw.githubusercontent.com/s-tip/stip-common/images/stip-sns.gif "S-TIP SNS")
 
 S-TIP GV
-![S-TIP GV](https://github.com/s-tip/stip-common/raw/0a8eeda02a093f0c8605f6be39712bf63b8662f1/stip-gv.gif "S-TIP GV")
+![S-TIP GV](https://raw.githubusercontent.com/s-tip/stip-common/images/stip-gv.gif "S-TIP GV")
 
 ## Contributing
 
