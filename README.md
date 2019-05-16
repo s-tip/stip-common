@@ -1,6 +1,6 @@
 # S-TIP - **S**eamless **T**hreat **I**ntelligence **P**latform
 
-<img src="https://github.com/s-tip/stip-common/blob/master/img/stip-logo.ico">
+<img src="https://github.com/s-tip/stip-common/blob/master/img/stip-logo.ico" width="128pt">>
 
 S-TIP is a threat intelligence platform to bring down barriers among separate practices of CTI sharing.
 
