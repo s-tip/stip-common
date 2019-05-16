@@ -25,9 +25,9 @@ S-TIP has a docker image and docker-compose script.
 
 See the [Running with docker](https://github.com/s-tip/stip-common/wikis/Running-with-Docker).
 
-### Running
+### Tutorial
 
-See the [Running](https://github.com/s-tip/stip-common/wikis/Running).
+See the [Tutorial](https://github.com/s-tip/stip-common/wikis/Tutorial).
 
 ### Configuration
 
