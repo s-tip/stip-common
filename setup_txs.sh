@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION="v0.1.0"
+VERSION_FILE=./VERSION
 INSTALL_DIR=/opt/s-tip
 COMMON_DIR=/home/stip/stip-common
 SCRIPTS_DIR=$COMMON_DIR/install_scripts
@@ -22,5 +22,5 @@ cp -p $COMMON_DIR/stip-txs/init.d/supervisord.conf /etc/supervisor/
 cp -p $COMMON_DIR/stip-txs/init.d/conf.d/stip-taxii-server.conf /etc/supervisor/conf.d/
 cp -pr $COMMON_DIR/stip-txs/init.d/conf.d/cert /etc/supervisor/conf.d/
 ln -s $COMMON_DIR/stip-txs/src $INSTALL_DIR/txs/src
-echo $VERSION > $INSTALL_DIR/txs/version
+cp -p $VERSION_FILE > $INSTALL_DIR/txs/version
 chown -R stip:stip $INSTALL_DIR/txs
