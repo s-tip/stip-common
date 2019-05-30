@@ -14,6 +14,7 @@ STIP_SNS_AFFILIATION_KEY = 'Affiliation'
 STIP_SNS_REGION_CODE_KEY = 'Region Code'
 STIP_SNS_CI_KEY = 'Critical Infrastructure'
 STIP_SNS_REFERRED_URL_KEY = 'Referred URL'
+STIP_SNS_STIX2_PACKAGE_ID_KEY = 'STIX2 Package ID'
 
 #SNS setteings より
 SNS_PROJECT_DIR='/opt/s-tip/sns'
@@ -31,6 +32,7 @@ SNS_TOOL_VENDOR = 'S-TIP Community'
 SNS_NA_ACCOUNT = 'na'
 SNS_GV_CONCIERGE_ACCOUNT = 'gv_concierge'
 SNS_FALCON_CONCIERGE_ACCOUNT = 'falcon_concierge'
+SNS_SLACK_BOT_ACCOUNT = 'slack'
 
 #SNS から移植
 LANGUAGES = (
