@@ -23,6 +23,7 @@ class SNSConfig(models.Model):
     DEFAULT_SMTP_PORT = 25
     DEFAULT_NS_URL = 'http://fsi.fujitsu.com'
     DEFAULT_NS_NAME = 's-tip'
+    DEFAULT_SLACK_BOT_CHANNEL = '#s-tip'
 
     SNS_VERSION = None
 
@@ -55,7 +56,9 @@ class SNSConfig(models.Model):
     smtp_accept_mail_address = models.TextField(max_length=128,default='')
     stix_ns_url = models.TextField(max_length=128,default=DEFAULT_NS_URL)
     stix_ns_name = models.TextField(max_length=128,default=DEFAULT_NS_NAME)
-
+    slack_bot_token = models.CharField(max_length=128, default='')
+    slack_bot_channel = models.CharField(max_length=128,default=DEFAULT_SLACK_BOT_CHANNEL)
+    
     objects = SNSConfigManager()
 
     @staticmethod
@@ -207,6 +210,10 @@ class SNSConfig(models.Model):
         return '%s%s' % (SNSConfig.get_rs_host(),'/api/v1/sns/query')
 
     @staticmethod
+    def get_rs_get_share_misp_url():
+        return '%s%s' % (SNSConfig.get_rs_host(),'/api/v1/sns/share_misp')
+    
+    @staticmethod
     def get_rs_community_name():
         sns_config = SNSConfig.get_sns_config()
         return SNSConfig.get_value_with_null_check(sns_config.rs_community_name,default_value=SNSConfig.DEFAULT_RS_COMMUNITY_NAME)
@@ -285,5 +292,15 @@ class SNSConfig(models.Model):
         sns_config = SNSConfig.get_sns_config()
         return SNSConfig.get_value_with_null_check(sns_config.stix_ns_name,default_value=SNSConfig.DEFAULT_NS_NAME)
 
+    @staticmethod
+    def get_slack_bot_token():
+        sns_config = SNSConfig.get_sns_config()
+        return SNSConfig.get_value_with_null_check(sns_config.slack_bot_token,default_value=None)
+
+    @staticmethod
+    def get_slack_bot_chnnel():
+        sns_config = SNSConfig.get_sns_config()
+        return SNSConfig.get_value_with_null_check(sns_config.slack_bot_channel,default_value=SNSConfig.DEFAULT_SLACK_BOT_CHANNEL)
+    
     class Meta:
         db_table = 'stip_sns_system'
