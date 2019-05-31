@@ -1,5 +1,5 @@
 #!/bin/sh
-VERSION_FILE=./VERSION
+VERSION_FILE=VERSION
 INSTALL_DIR=/opt/s-tip
 COMMON_DIR=/home/stip/stip-common/
 SCRIPTS_DIR=$COMMON_DIR/install_scripts
@@ -32,7 +32,7 @@ ln -s $COMMON_DIR/stip-rs/src $INSTALL_DIR/rs/src
 cp -p $COMMON_DIR/stip-rs/bin/* $INSTALL_DIR/rs/bin/
 cp -p $COMMON_DIR/stip-rs/data/* $INSTALL_DIR/rs/data/
 cp -p $SCRIPTS_DIR/env_rs $INSTALL_DIR/rs/.env
-cp -p $VERSION_FILE > $INSTALL_DIR/rs/version
+cp -p $VERSION_FILE $INSTALL_DIR/rs/version
 chown -R stip:stip $INSTALL_DIR
 
 # for Apache2
