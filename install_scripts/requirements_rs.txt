@@ -15,3 +15,4 @@ pymongo==2.8
 bleach
 pymisp
 Unipath
+slackclient
