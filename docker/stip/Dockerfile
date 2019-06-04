@@ -69,9 +69,9 @@ RUN a2ensite stip-sns-ssl
 # modification for docker image
 ## mysql/mongo hostname
 RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/rs/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/gv/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/sns/.env
-COPY ctirs/fixtures/mongo.json ${COMMON_DIR}/stip-rs/src/ctirs/fixtures/mongo.json
-COPY ctirs/models/sns/config/fixture/sns_config.json ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
-COPY ctirs/models/sns/config/models.py ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/models.py
+RUN sed -i".org" 's/"host": "localhost"/"host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/fixtures/mongo.json
+RUN sed -i".org" 's/"circl_mongo_host": "localhost"/"circl_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
+RUN sed -i".org" -e "s/DEFAULT_CIRCL_MONGO_HOST = 'localhost'/DEFAULT_CIRCL_MONGO_HOST = 'mongo'/g" -e "s/DEFAULT_ATTCK_MONGO_HOST = 'localhost'/DEFAULT_ATTCK_MONGO_HOST = 'mongo'/g" ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/models.py
 
 # create stip user
 RUN adduser --disabled-password --gecos "" stip && adduser stip stip
