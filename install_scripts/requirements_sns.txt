@@ -10,3 +10,4 @@ stix2-slider==1.0.0
 reportlab
 jira
 taxii2-client
+ioc_fanger
