@@ -16,3 +16,4 @@ bleach
 pymisp
 Unipath
 slackclient
+maec==4.1.0.13
