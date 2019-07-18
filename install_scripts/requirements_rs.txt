@@ -17,3 +17,4 @@ pymisp
 Unipath
 slackclient
 maec==4.1.0.13
+misp_stix_converter
