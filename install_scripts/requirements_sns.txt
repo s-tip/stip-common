@@ -11,3 +11,4 @@ reportlab
 jira
 taxii2-client
 ioc_fanger
+splunk-sdk
