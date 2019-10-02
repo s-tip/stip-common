@@ -22,3 +22,10 @@ git clone https://github.com/s-tip/stip-common.git
 Setup your environment and do your work.
 
 Push to your fork and [submit a pull request](https://github.com/s-tip/stip-common/compare/)
+
+### Supported Languages
+* English 
+* Japanese
+
+    When you use Japanse, please describe a title in English for non-Japanese speaker.
+    日本語を使用する場合も、非日本語ユーザのためタイトルは英語で記述してください。
