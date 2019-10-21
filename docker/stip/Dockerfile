@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # apt install
 ## for docker image
 RUN apt update && apt install -y \
@@ -9,7 +11,7 @@ RUN apt install -y \
     python-pip apache2 libapache2-mod-wsgi libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 && echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 RUN apt update && apt install -y \ 
     mongodb-org \
  && apt clean \
@@ -71,7 +73,7 @@ RUN a2ensite stip-sns-ssl
 RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/rs/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/gv/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/sns/.env
 RUN sed -i".org" 's/"host": "localhost"/"host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/fixtures/mongo.json
 RUN sed -i".org" 's/"circl_mongo_host": "localhost"/"circl_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
-RUN sed -i".org" -e "s/DEFAULT_CIRCL_MONGO_HOST = 'localhost'/DEFAULT_CIRCL_MONGO_HOST = 'mongo'/g" -e "s/DEFAULT_ATTCK_MONGO_HOST = 'localhost'/DEFAULT_ATTCK_MONGO_HOST = 'mongo'/g" ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/models.py
+RUN sed -i 's/"attck_mongo_host": "localhost"/"attck_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
 
 # create stip user
 RUN adduser --disabled-password --gecos "" stip && adduser stip stip
