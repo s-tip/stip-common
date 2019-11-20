@@ -8,7 +8,7 @@ RUN apt update && apt install -y \
     git python2.7 sudo dialog systemd
 ## for stip-rs & stip-sns
 RUN apt install -y \
-    python-pip apache2 libapache2-mod-wsgi libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev \
+    python-pip apache2 libapache2-mod-wsgi libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev libssl-dev \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
