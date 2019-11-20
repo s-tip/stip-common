@@ -11,7 +11,7 @@ chown -R stip:stip stip-rs
 ## apt install
 apt install -y python-pip
 apt install -y apache2 libapache2-mod-wsgi
-apt install -y mysql-server libmysqlclient-dev
+apt install -y mysql-server libmysqlclient-dev libssl-dev
 
 ## pip install
 pip install -r $SCRIPTS_DIR/requirements_rs.txt
