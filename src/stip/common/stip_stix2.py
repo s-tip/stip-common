@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from stix2.v21.sdo import Identity
 
 #S-TIP オブジェクトに格納する固定値

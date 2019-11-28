@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import codecs
 
 class TLD(object):
@@ -20,7 +19,7 @@ class TLD(object):
 
             self.set_dict(tld_dict)
         except Exception as e:
-            print e
+            print(e)
             raise e
 
     def get_dict(self):
