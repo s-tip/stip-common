@@ -4,9 +4,8 @@ from stix2.v21.sdo import Identity
 STIP_IDENTITY_CLASS = 'organization'
 STIP_NAME = 'Fujitsu System Integration Laboratories.'
 
+
 # S-TIP の Identity を作成する
-
-
 def _get_stip_identname(stip_user=None):
     # identity の name は stip_user の affiliation から
     try:
