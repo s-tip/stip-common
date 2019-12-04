@@ -4,7 +4,7 @@ bleach
 pdfminer.six
 pillow
 beautifulsoup4
-stix-validator==2.0.0.dev1
+stix-validator
 pymongo==2.8
 stix2-slider
 reportlab

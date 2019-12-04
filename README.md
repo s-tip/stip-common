@@ -21,7 +21,7 @@ See the [Installation](https://github.com/s-tip/stip-common/wikis/installation).
 
 ### Docker images
 
-S-TIP has a docker image and docker-compose script.
+S-TIP has a docker image and a docker-compose script.
 
 See the [Running with docker](https://github.com/s-tip/stip-common/wikis/Running-with-Docker).
 
@@ -35,7 +35,7 @@ See the [Configuration](https://github.com/s-tip/stip-common/wikis/configuration
 
 ## Core Concept
 
-Seamless Threat Intelligence Platform is built around a very simple, but extremely powerful concept - Convert whatever CTI into a STIX file or a set of STIX files, send them around, and create different views dynamically from those STIX file.
+Seamless Threat Intelligence Platform is built around a very simple, but extremely powerful concept - Convert whatever CTI into a STIX file or a set of STIX files, send them around, and create different views dynamically from those STIX files.
 
 See the [wiki](https://github.com/s-tip/stip-common/wikis/home) for details.
 
