@@ -9,7 +9,7 @@ stix2-elevator
 stix2-validator==2.0.0.dev1
 stix2==1.1.3
 libtaxii
-MySQL-python
+mysqlclient
 stix2-patterns==1.1.0
 stix2-slider
 python-decouple
@@ -18,5 +18,5 @@ bleach
 pymisp
 Unipath
 slackclient
-maec==4.1.0.13
+maec
 misp_stix_converter
