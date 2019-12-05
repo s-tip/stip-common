@@ -13,7 +13,7 @@ apt install -y python3-dev
 apt install -y libpq-dev
 
 ## pip install
-pip install -r $SCRIPTS_DIR/requirements_sns.txt
+pip3 install -r $SCRIPTS_DIR/requirements_sns.txt
 
 # copy SNS setting
 mkdir -p $INSTALL_DIR/sns/bin

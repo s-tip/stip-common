@@ -9,12 +9,12 @@ git clone https://github.com/s-tip/stip-rs.git
 chown -R stip:stip stip-rs
 
 ## apt install
-apt install -y python-pip
-apt install -y apache2 libapache2-mod-wsgi
+apt install -y python3-pip
+apt install -y apache2 libapache2-mod-wsgi-py3
 apt install -y mysql-server libmysqlclient-dev libssl-dev
 
 ## pip install
-pip install -r $SCRIPTS_DIR/requirements_rs.txt
+pip3 install -r $SCRIPTS_DIR/requirements_rs.txt
 
 # install cti-pattern-matcher from github
 git clone https://github.com/oasis-open/cti-pattern-matcher.git
