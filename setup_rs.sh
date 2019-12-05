@@ -19,7 +19,7 @@ pip3 install -r $SCRIPTS_DIR/requirements_rs.txt
 # install cti-pattern-matcher from github
 git clone https://github.com/oasis-open/cti-pattern-matcher.git
 cd cti-pattern-matcher/
-python setup.py install
+python3 setup.py install
 cd -
 chown -R stip:stip cti-pattern-matcher
 
