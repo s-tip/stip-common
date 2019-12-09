@@ -10,7 +10,7 @@ class TLD(object):
             return
         try:
             tld_dict = {}
-            f = codecs.open(file_path, 'r', 'utf-8')
+            f = codecs.open(file_path, 'r', encoding='utf-8')
             lines = f.readlines()
             f.close()
             for line in lines:
