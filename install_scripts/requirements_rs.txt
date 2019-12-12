@@ -5,7 +5,7 @@ apscheduler
 requests
 IPy
 stix
-stix2-elevator
+stix2-elevator==2.0.1
 stix2-validator==2.0.0.dev1
 stix2==1.1.3
 libtaxii
