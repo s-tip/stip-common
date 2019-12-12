@@ -79,3 +79,4 @@ RUN sed -i 's/"attck_mongo_host": "localhost"/"attck_mongo_host": "mongo"/g' ${C
 RUN adduser --disabled-password --gecos "" stip && adduser stip stip
 RUN gpasswd -a stip sudo && gpasswd -a stip adm
 RUN chown -R stip:stip ${INSTALL_DIR}
+RUN chown -R stip:stip ${COMMON_DIR}
