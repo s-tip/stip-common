@@ -1,6 +1,6 @@
 psycopg2-binary
 xmltodict
 pbr
-pdfminer==20140328
+pdfminer
 pymongo==2.8
 Unipath

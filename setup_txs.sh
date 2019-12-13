@@ -12,8 +12,8 @@ chown -R stip:stip stip-txs
 apt install -y supervisor gunicorn
 
 ## pip install
-pip install libtaxii
-pip install opentaxii==0.1.7
+pip3 install libtaxii
+pip3 install opentaxii==0.1.7
 
 # copy TXS setting
 mkdir -p $INSTALL_DIR/txs

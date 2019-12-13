@@ -5,10 +5,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 # apt install
 ## for docker image
 RUN apt update && apt install -y \
-    git python2.7 sudo dialog systemd
+    git python3.6 sudo dialog systemd
 ## for stip-rs & stip-sns
 RUN apt install -y \
-    python-pip apache2 libapache2-mod-wsgi libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev libssl-dev \
+    python3-pip apache2 libapache2-mod-wsgi-py3 libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev libssl-dev \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
@@ -18,7 +18,7 @@ RUN apt update && apt install -y \
  && rm -rf /var/lib/apt/lists/*
 
 # env
-ENV VERSION=v0.1.0 \
+ENV VERSION=v0.2.0 \
     INSTALL_DIR=/opt/s-tip \
     COMMON_DIR=/stip-common
 ENV SCRIPTS_DIR ${COMMON_DIR}/install_scripts
@@ -26,7 +26,7 @@ ENV SCRIPTS_DIR ${COMMON_DIR}/install_scripts
 # pip install
 WORKDIR /
 RUN git clone https://github.com/s-tip/stip-common.git
-RUN pip install -r ${SCRIPTS_DIR}/requirements_rs.txt -r ${SCRIPTS_DIR}/requirements_gv.txt -r ${SCRIPTS_DIR}/requirements_sns.txt
+RUN pip3 install -r ${SCRIPTS_DIR}/requirements_rs.txt -r ${SCRIPTS_DIR}/requirements_gv.txt -r ${SCRIPTS_DIR}/requirements_sns.txt
 
 # stip-common setup
 RUN mkdir -p ${INSTALL_DIR}/common
@@ -36,7 +36,7 @@ RUN ln -s ${COMMON_DIR}/src ${INSTALL_DIR}/common/src && ln -s ${COMMON_DIR}/img
 WORKDIR /stip-common
 RUN git clone https://github.com/oasis-open/cti-pattern-matcher.git
 WORKDIR /stip-common/cti-pattern-matcher/
-RUN python setup.py install
+RUN python3 setup.py install
 WORKDIR /stip-common
 RUN git clone https://github.com/s-tip/stip-rs.git
 RUN mkdir -p ${INSTALL_DIR}/rs/bin ${INSTALL_DIR}/rs/community ${INSTALL_DIR}/rs/data ${INSTALL_DIR}/rs/staticfiles

@@ -9,7 +9,7 @@ git clone https://github.com/s-tip/stip-gv.git
 chown -R stip:stip stip-gv
 
 ## pip install
-pip install -r $SCRIPTS_DIR/requirements_gv.txt
+pip3 install -r $SCRIPTS_DIR/requirements_gv.txt
 
 ## copy GV setting
 mkdir -p $INSTALL_DIR/gv/bin
