@@ -6,7 +6,7 @@ S-TIP is a threat intelligence platform to bring down barriers among separate pr
 
 ## Requirements
 
-* Python 2.7 (Migrating to 3.x)
+* **Python 3.6+**
 * MySQL 5.7+
 * MongoDB 3.4+
 * Web server (e.g. apache)
