@@ -1,6 +1,6 @@
 # S-TIP - **S**eamless **T**hreat **I**ntelligence **P**latform
 
-<img src="https://github.com/s-tip/stip-common/blob/master/img/stip-logo.ico" width="128pt">
+<img src="https://github.com/s-tip/stip-common/blob/master/img/stip-logo.ico">
 
 S-TIP is a threat intelligence platform to bring down barriers among separate practices of CTI sharing.
 
@@ -47,6 +47,14 @@ S-TIP SNS
 
 S-TIP GV
 ![S-TIP GV](https://raw.githubusercontent.com/s-tip/stip-common/images/stip-gv.gif "S-TIP GV")
+
+## Slides
+
+Slide deck for the Code Blue 2019 conference.
+
+https://www.slideshare.net/codeblue_jp/cb19-seamless-threat-intelligence-platform-stip-by-koji-yamada-toshitaka-satomi
+
+
 
 ## Contributing
 
