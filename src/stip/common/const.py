@@ -15,6 +15,21 @@ STIP_SNS_CI_KEY = 'Critical Infrastructure'
 STIP_SNS_REFERRED_URL_KEY = 'Referred URL'
 STIP_SNS_STIX2_PACKAGE_ID_KEY = 'STIX2 Package ID'
 
+
+STIP_STIX2_X_STIP_SNS_TYPE = 'x-stip-sns'
+
+STIP_STIX2_PROP_TYPE = 'x_stip_sns_type'
+STIP_STIX2_PROP_AUTHOR = 'x_stip_sns_author'
+STIP_STIX2_PROP_POST = 'x_stip_sns_post'
+STIP_STIX2_PROP_ATTACHMENT_REFS = 'x_stip_sns_attachment_refs'
+STIP_STIX2_PROP_OBJECT_REF = 'x_stip_sns_object_ref'
+STIP_STIX2_PROP_OBJCET_REF_VERSION = 'x_stip_sns_object_ref_version'
+STIP_STIX2_PROP_ATTACHMENT = 'x_stip_sns_attachment'
+STIP_STIX2_PROP_TAGS = 'x_stip_sns_tags'
+STIP_STIX2_PROP_INDICATORS = 'x_stip_sns_indicators'
+STIP_STIX2_PROP_IDENTITY = 'x_stip_sns_identity'
+STIP_STIX2_PROP_TOOL = 'x_stip_sns_tool'
+
 STIP_STIX2_SNS_AUTHOR_USER_NAME_KEY = 'username'
 STIP_STIX2_SNS_AUTHOR_SCREEN_NAME_KEY = 'screen_name'
 STIP_STIX2_SNS_AUTHOR_AFFILIATION_KEY = 'affiliation'
@@ -22,7 +37,6 @@ STIP_STIX2_SNS_AUTHOR_REGION_CODE_KEY = 'region_code'
 STIP_STIX2_SNS_AUTHOR_COUNTRY_CODE_KEY = 'country_code'
 STIP_STIX2_SNS_AUTHOR_CI_KEY = 'critical_infrastructure'
 STIP_STIX2_SNS_AUTHOR_REFERRED_URL_KEY = 'referred_url'
-
 
 STIP_STIX2_SNS_POST_TITLE_KEY = 'title'
 STIP_STIX2_SNS_POST_DECRIPTION_KEY = 'description'
@@ -37,7 +51,14 @@ STIP_STIX2_SNS_TOOL_VENDOR_KEY = 'vendor'
 STIP_STIX2_SNS_ATTACHMENT_FILENAME_KEY = 'file_name'
 STIP_STIX2_SNS_ATTACHMENT_CONTENT_KEY = 'content'
 
-STIP_STIX2_IDENTITY_STIP_SNS_ACCOUNT = 'x_stip_sns_account'
+STIP_STIX2_SNS_POST_TYPE_POST = 'post'
+STIP_STIX2_SNS_POST_TYPE_ATTACHMENT = 'attachment'
+STIP_STIX2_SNS_POST_TYPE_LIKE = 'like'
+STIP_STIX2_SNS_POST_TYPE_UNLIKE = 'unlike'
+STIP_STIX2_SNS_POST_TYPE_COMMENT = 'comment'
+
+STIP_STIX2_SNS_ATTACHMENT_BUNDLE = 'bundle'
+STIP_STIX2_SNS_ATTACHMENT_STIP_SNS = 'x_stip_sns'
 
 
 # SNS setteings より
