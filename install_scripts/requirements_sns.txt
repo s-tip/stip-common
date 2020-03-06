@@ -10,5 +10,6 @@ stix2-slider
 reportlab
 jira
 taxii2-client
-ioc_fanger
+iocextract
+beautifulsoup4
 splunk-sdk
