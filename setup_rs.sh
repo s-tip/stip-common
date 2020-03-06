@@ -4,6 +4,15 @@ INSTALL_DIR=/opt/s-tip
 COMMON_DIR=/home/stip/stip-common/
 SCRIPTS_DIR=$COMMON_DIR/install_scripts
 
+# Ubuntu check
+if [ -f /etc/lsb-release ]; then
+    . /etc/lsb-release
+    echo "Ubuntu Codename: $DISTRIB_CODENAME"
+else
+    echo "This script only works on Ubuntu."
+    exit 1
+fi
+
 # git clone
 git clone https://github.com/s-tip/stip-rs.git
 chown -R stip:stip stip-rs
@@ -43,9 +52,9 @@ a2enconf fqdn
 a2enmod ssl
 a2ensite stip-rs-ssl
 
-# for MongoDB
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+# for MongoDB 4.0
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+echo "deb http://repo.mongodb.org/apt/ubuntu $DISTRIB_CODENAME/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 apt update
 apt install -y mongodb-org
 systemctl start mongod

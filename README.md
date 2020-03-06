@@ -8,7 +8,7 @@ S-TIP is a threat intelligence platform to bring down barriers among separate pr
 
 * **Python 3.6+**
 * MySQL 5.7+
-* MongoDB 3.4+
+* MongoDB 4.0+
 * Web server (e.g. apache)
 
 ## Getting Started
