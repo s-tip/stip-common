@@ -18,7 +18,7 @@ RUN apt update && apt install -y \
  && rm -rf /var/lib/apt/lists/*
 
 # env
-ENV VERSION=v0.2.0 \
+ENV VERSION=v0.3.0 \
     INSTALL_DIR=/opt/s-tip \
     COMMON_DIR=/stip-common
 ENV SCRIPTS_DIR ${COMMON_DIR}/install_scripts
