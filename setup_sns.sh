@@ -1,5 +1,4 @@
 #!/bin/sh
-VERSION_FILE=VERSION
 INSTALL_DIR=/opt/s-tip
 COMMON_DIR=/home/stip/stip-common
 SCRIPTS_DIR=$COMMON_DIR/install_scripts
@@ -20,9 +19,9 @@ mkdir -p $INSTALL_DIR/sns/bin
 mkdir -p $INSTALL_DIR/sns/media/cache
 cp -pr $COMMON_DIR/stip-sns/bin $INSTALL_DIR/sns
 cp -pr $COMMON_DIR/stip-sns/media $INSTALL_DIR/sns
-ln -s $COMMON_DIR//stip-sns/src $INSTALL_DIR/sns/src
+ln -s $COMMON_DIR/stip-sns/src $INSTALL_DIR/sns/src
 cp -pr $SCRIPTS_DIR/env_sns $INSTALL_DIR/sns/.env
-cp -p $VERSION_FILE $INSTALL_DIR/sns/version
+ln -s $COMMON_DIR/stip-sns/version $INSTALL_DIR/sns/version
 mkdir $INSTALL_DIR/sns/staticfiles
 chown -R stip:stip $INSTALL_DIR/sns
 

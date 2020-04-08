@@ -1,5 +1,4 @@
 #!/bin/sh
-VERSION_FILE=VERSION
 INSTALL_DIR=/opt/s-tip
 COMMON_DIR=/home/stip/stip-common
 SCRIPTS_DIR=$COMMON_DIR/install_scripts
@@ -21,7 +20,7 @@ ln -s $COMMON_DIR/stip-gv/src $INSTALL_DIR/gv/src
 cp -p $COMMON_DIR/stip-gv/bin/* $INSTALL_DIR/gv/bin/
 cp -p $COMMON_DIR/stip-gv/conf/* $INSTALL_DIR/gv/conf
 cp -p $SCRIPTS_DIR/env_gv $INSTALL_DIR/gv/.env
-cp -p $VERSION_FILE $INSTALL_DIR/gv/version
+ln -s $COMMON_DIR/stip-gv/version $INSTALL_DIR/gv/version
 chown -R stip:stip $INSTALL_DIR/gv
 
 ## for Apache2
