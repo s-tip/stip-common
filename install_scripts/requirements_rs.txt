@@ -4,8 +4,8 @@ pytz
 apscheduler
 requests
 IPy
-stix>=1.2.0.8
-stix2-elevator>=2.1.0
+stix>=1.2.0.10
+stix2-elevator>=2.1.1
 stix2-validator==2.0.0.dev1
 stix2>=1.4.0
 libtaxii
