@@ -12,3 +12,4 @@ taxii2-client
 iocextract
 beautifulsoup4
 splunk-sdk
+nest-asyncio
