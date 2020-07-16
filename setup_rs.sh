@@ -7,6 +7,10 @@ SCRIPTS_DIR=$COMMON_DIR/install_scripts
 if [ -f /etc/lsb-release ]; then
     . /etc/lsb-release
     echo "Ubuntu Codename: $DISTRIB_CODENAME"
+    if [ $DISTRIB_CODENAME = "focal" ]; then
+        echo "Distribution focal detected. Use BIONIC mongo package instead of focal temporarily."
+        DISTRIB_CODENAME=bionic
+    fi
 else
     echo "This script only works on Ubuntu."
     exit 1

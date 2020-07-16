@@ -50,7 +50,7 @@ S-TIP GV
 
 ## Slides
 
-Slide deck for the Code Blue 2019 conference.
+Slide deck for the Code Blue 2019 conference. (in Japanese)
 
 https://www.slideshare.net/codeblue_jp/cb19-seamless-threat-intelligence-platform-stip-by-koji-yamada-toshitaka-satomi
 
@@ -64,4 +64,4 @@ See the [Contributing](CONTRIBUTING.md).
 
 This software is licensed under [GNU Affero General Public License version 3](http://www.gnu.org/licenses/agpl-3.0.html)
 
-* Copyright (c) 2019, Fujitsu System Integration Laboratories Ltd.
+* Copyright (c) 2019-2020, Fujitsu System Integration Laboratories Ltd.
