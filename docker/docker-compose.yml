@@ -4,7 +4,7 @@ services:
 # stip (apache)
   stip:
 #    build: ./stip
-    image: ykoji8681/stip
+    image: seamlesstip/stip
     restart: always
     ports:
      - "443:443"
