@@ -57,3 +57,10 @@ body {
 	background-color: #C27BC8;
 	color: #ffffff;
 }
+
+#error_msg{
+       text-align: center;
+       font-size: 1.5em;
+       font-weight: bold;
+       color: #FF0000;
+}
