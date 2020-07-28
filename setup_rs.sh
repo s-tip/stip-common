@@ -28,13 +28,6 @@ apt install -y mysql-server libmysqlclient-dev libssl-dev
 ## pip install
 pip3 install -r $SCRIPTS_DIR/requirements_rs.txt
 
-# install cti-pattern-matcher from github
-git clone https://github.com/oasis-open/cti-pattern-matcher.git
-cd cti-pattern-matcher/
-python3 setup.py install
-cd -
-chown -R stip:stip cti-pattern-matcher
-
 # copy RS setting
 mkdir -p $INSTALL_DIR/rs/bin
 mkdir -p $INSTALL_DIR/rs/community
