@@ -11,7 +11,7 @@ stix2>=1.4.0
 libtaxii
 mysqlclient
 stix2-patterns>=1.3.0
-stix2-slider
+stix2-slider>=3.0.0
 python-decouple
 pymongo>=3.10.1
 bleach
@@ -20,4 +20,5 @@ Unipath
 slackclient
 maec
 misp_stix_converter
-cybox==2.1.0.20
+cybox>=2.1.0.21
+stix2-matcher>=1.0.0
