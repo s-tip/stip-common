@@ -8,14 +8,6 @@
 
 {% block body %}
   <div class="cover">
-    {% if form.non_field_errors %}
-      {% for error in form.non_field_errors %}
-        <div class="alert alert-danger alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          {{ error }}
-        </div>
-      {% endfor %}
-    {% endif %}
     <div class="login">
       <div class="stip-logo-div">
     	  <img src="/static/img/stip-logo.png" class="stip-logo-img"/>
@@ -23,19 +15,13 @@
       <h2 class="h2-stip">S-TIP</h2>
       <form method="post" action="{% url 'login' %}" role="form">
         {% csrf_token %}
-        <div class="form-group{% if form.username.errors %} has-error{% endif %}">
+        <div class="form-group">
           <label for="username" style="font-weight:normal;">Username</label>
           <input type="text" class="form-control" id="username" name="username">
-          {% for error in form.username.errors %}
-            <label class="control-label">{{ error }}</label>
-          {% endfor %}
         </div>
-        <div class="form-group{% if form.password.errors %} has-error{% endif %}">
+        <div class="form-group">
           <label for="password" style="font-weight:normal;">Password</label>
           <input type="password" class="form-control" id="password" name="password">
-          {% for error in form.password.errors %}
-            <label class="control-label">{{ error }}</label>
-          {% endfor %}
         </div>
         <br/>
         <div class="form-group">
