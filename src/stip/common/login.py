@@ -13,7 +13,7 @@ def _get_login_authcode(request):
 
 def login(request, redirect_to):
     if request.user.is_authenticated():
-        return redirect('feeds')
+        return redirect(redirect_to)
 
     replace_dict = {}
     username = request.POST['username']
@@ -36,7 +36,7 @@ def login(request, redirect_to):
 
 def login_totp(request, redirect_to):
     if request.user.is_authenticated():
-        return redirect('feeds')
+        return redirect(redirect_to)
 
     replace_dict = {}
     username = request.session['username']
