@@ -34,7 +34,7 @@ def login(request, redirect_to, password_modified_to='password_modified'):
         return render(request, 'cover.html', replace_dict)
 
 
-def login_totp(request, redirect_to):
+def login_totp(request, redirect_to, password_modified_to='password_modified'):
     if request.user.is_authenticated():
         return redirect(redirect_to)
 
@@ -47,6 +47,8 @@ def login_totp(request, redirect_to):
     if totp.verify(authcode):
         auth_login(request, user)
         request = set_language_setting(request, user)
+        if not user.is_modified_password:
+            return redirect(password_modified_to)
         return redirect(redirect_to)
     else:
         replace_dict['error_msg'] = 'Two-factor authentication failed.'
