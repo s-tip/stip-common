@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.utils import translation
+from django.utils.datastructures import MultiValueDictKeyError
 from stip.common import get_text_field_value
 from ctirs.models import STIPUser as User
 
@@ -16,9 +17,13 @@ def login(request, redirect_to, password_modified_to='password_modified'):
         return redirect(redirect_to)
 
     replace_dict = {}
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
+    user = None
+    try:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+    except MultiValueDictKeyError:
+        return render(request, 'cover.html', replace_dict)
     if user:
         request.session['username'] = str(user)
         if user.totp_secret is None:
@@ -39,11 +44,13 @@ def login_totp(request, redirect_to, password_modified_to='password_modified'):
         return redirect(redirect_to)
 
     replace_dict = {}
-    username = request.session['username']
+    username = request.session.get('username', None)
+    if not username:
+        return render(request, 'cover.html', replace_dict)
     authcode = _get_login_authcode(request)
     user = User.objects.get(username=username)
     totp = pyotp.TOTP(user.totp_secret)
-    
+
     if totp.verify(authcode):
         auth_login(request, user)
         request = set_language_setting(request, user)
