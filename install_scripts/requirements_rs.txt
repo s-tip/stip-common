@@ -21,3 +21,5 @@ slackclient
 maec
 misp_stix_converter
 cybox==2.1.0.20
+pyotp
+
