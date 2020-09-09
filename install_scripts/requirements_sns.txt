@@ -13,3 +13,5 @@ iocextract
 beautifulsoup4
 splunk-sdk
 nest-asyncio
+qrcode
+
