@@ -33,10 +33,6 @@ RUN ln -s ${COMMON_DIR}/src ${INSTALL_DIR}/common/src && ln -s ${COMMON_DIR}/img
 
 # stip-rs setup
 WORKDIR /stip-common
-RUN git clone https://github.com/oasis-open/cti-pattern-matcher.git
-WORKDIR /stip-common/cti-pattern-matcher/
-RUN python3 setup.py install
-WORKDIR /stip-common
 RUN git clone https://github.com/s-tip/stip-rs.git
 RUN mkdir -p ${INSTALL_DIR}/rs/bin ${INSTALL_DIR}/rs/community ${INSTALL_DIR}/rs/data ${INSTALL_DIR}/rs/staticfiles
 RUN ln -s ${COMMON_DIR}/stip-rs/src ${INSTALL_DIR}/rs/src
