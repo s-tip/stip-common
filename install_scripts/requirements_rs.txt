@@ -23,4 +23,5 @@ maec
 misp_stix_converter
 cybox>=2.1.0.21
 pyotp
+stix2-matcher>=1.0.0
 
