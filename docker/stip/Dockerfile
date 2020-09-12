@@ -60,6 +60,15 @@ RUN cp -pr ${COMMON_DIR}/stip-sns/bin ${INSTALL_DIR}/sns && cp -pr ${COMMON_DIR}
 RUN ln -s ${COMMON_DIR}/stip-sns/src ${INSTALL_DIR}/sns/src
 RUN a2ensite stip-sns-ssl
 
+# stip-txs2 setup
+WORKDIR /stip-common
+RUN git clone https://github.com/s-tip/stip-txs2.git
+RUN mkdir -p ${INSTALL_DIR}/txs21/bin ${INSTALL_DIR}/txs21/staticfiles
+RUN cp -pr ${COMMON_DIR}/stip-txs2/bin ${INSTALL_DIR}/txs21 && cp -pr ${SCRIPTS_DIR}/env_txs21 ${INSTALL_DIR}/txs21/.env && cp -p ${SCRIPTS_DIR}/apache/stip-txs21-ssl.conf /etc/apache2/sites-available && cp -p ${SCRIPTS_DIR}/apache/stip-txs21-console-ssl.conf /etc/apache2/sites-available
+RUN ln -s ${COMMON_DIR}/stip-txs2/src ${INSTALL_DIR}/txs21/src
+RUN a2ensite stip-txs21-ssl
+RUN a2ensite stip-txs21-console-ssl
+
 # modification for docker image
 ## mysql/mongo hostname
 RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/rs/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/gv/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/sns/.env
