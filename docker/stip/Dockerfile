@@ -76,7 +76,7 @@ RUN a2ensite stip-txs2-console-ssl
 
 # modification for docker image
 ## mysql/mongo hostname
-RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/rs/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/gv/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/sns/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/txs21/.env
+RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/.env
 RUN sed -i".org" 's/"host": "localhost"/"host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/fixtures/mongo.json
 RUN sed -i".org" 's/"circl_mongo_host": "localhost"/"circl_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
 RUN sed -i 's/"attck_mongo_host": "localhost"/"attck_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
