@@ -39,9 +39,12 @@ mkdir -p $INSTALL_DIR/rs/staticfiles
 ln -s $COMMON_DIR/stip-rs/src $INSTALL_DIR/rs/src
 cp -p $COMMON_DIR/stip-rs/bin/* $INSTALL_DIR/rs/bin/
 cp -p $COMMON_DIR/stip-rs/data/* $INSTALL_DIR/rs/data/
-cp -p $SCRIPTS_DIR/env_rs $INSTALL_DIR/rs/.env
+cp -p $SCRIPTS_DIR/env $INSTALL_DIR/.env
+ln -s $INSTALL_DIR/.env $INSTALL_DIR/rs/.env
 ln -s $COMMON_DIR/stip-rs/version $INSTALL_DIR/rs/version
 chown -R stip:stip $INSTALL_DIR
+# init SECRET_KEY
+$COMMON_DIR/rs/bin/setup_env.py $INSTALL_DIR/.env
 
 # for Apache2
 cp -p $SCRIPTS_DIR/apache/ports.conf /etc/apache2/
@@ -70,3 +73,4 @@ mysql -p -u root -e 'create database s_tip;'
 
 ## Grant all privileges on s_tip.* to stip@"%" identified by 'stip' with grant option;
 mysql -p -u root < $SCRIPTS_DIR/init_mysql.sql
+

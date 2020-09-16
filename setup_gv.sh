@@ -19,7 +19,7 @@ mkdir -p $INSTALL_DIR/gv/stix
 ln -s $COMMON_DIR/stip-gv/src $INSTALL_DIR/gv/src
 cp -p $COMMON_DIR/stip-gv/bin/* $INSTALL_DIR/gv/bin/
 cp -p $COMMON_DIR/stip-gv/conf/* $INSTALL_DIR/gv/conf
-cp -p $SCRIPTS_DIR/env_gv $INSTALL_DIR/gv/.env
+ln -s $INSTALL_DIR/.env $INSTALL_DIR/gv/.env
 ln -s $COMMON_DIR/stip-gv/version $INSTALL_DIR/gv/version
 chown -R stip:stip $INSTALL_DIR/gv
 

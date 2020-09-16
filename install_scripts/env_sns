@@ -1,7 +1,0 @@
-DEBUG=False
-#SECRET_KEY='mys3cr3tk3y'
-#DATABASE_URL='sqlite:////opt/s-tip/sns/db/db.sqlite3'
-ALLOWED_HOSTS='*'
-MYSQL_USER=stip
-MYSQL_PASSWORD=stip
-MYSQL_DBNAME=s_tip
