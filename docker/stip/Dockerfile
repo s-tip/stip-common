@@ -36,7 +36,9 @@ WORKDIR /stip-common
 RUN git clone https://github.com/s-tip/stip-rs.git
 RUN mkdir -p ${INSTALL_DIR}/rs/bin ${INSTALL_DIR}/rs/community ${INSTALL_DIR}/rs/data ${INSTALL_DIR}/rs/staticfiles
 RUN ln -s ${COMMON_DIR}/stip-rs/src ${INSTALL_DIR}/rs/src
-RUN cp -p ${COMMON_DIR}/stip-rs/bin/* ${INSTALL_DIR}/rs/bin/ && cp -p ${COMMON_DIR}/stip-rs/data/* ${INSTALL_DIR}/rs/data/&& cp -p ${SCRIPTS_DIR}/env_rs ${INSTALL_DIR}/rs/.env
+RUN cp -p ${COMMON_DIR}/stip-rs/bin/* ${INSTALL_DIR}/rs/bin/ && cp -p ${COMMON_DIR}/stip-rs/data/* ${INSTALL_DIR}/rs/data/&& cp -p ${SCRIPTS_DIR}/env ${INSTALL_DIR}/.env
+RUN ln -s ${INSTALL_DIR}/.env ${INSTALL_DIR}/rs/.env
+RUN ${INSTALL_DIR}/rs/bin/setup_env.py ${INSTALL_DIR}/.env
 RUN cp -p ${SCRIPTS_DIR}/apache/ports.conf /etc/apache2/ && cp -p ${SCRIPTS_DIR}/apache/stip-rs-ssl.conf /etc/apache2/sites-available
 RUN sh -c "echo ServerName `hostname` > /etc/apache2/conf-available/fqdn.conf"
 RUN a2enconf fqdn
@@ -48,7 +50,8 @@ WORKDIR /stip-common
 RUN git clone https://github.com/s-tip/stip-gv.git
 RUN mkdir -p ${INSTALL_DIR}/gv/bin ${INSTALL_DIR}/gv/conf ${INSTALL_DIR}/gv/staticfiles ${INSTALL_DIR}/gv/stix
 RUN ln -s ${COMMON_DIR}/stip-gv/src ${INSTALL_DIR}/gv/src
-RUN cp -p ${COMMON_DIR}/stip-gv/bin/* ${INSTALL_DIR}/gv/bin/ && cp -p ${COMMON_DIR}/stip-gv/conf/* ${INSTALL_DIR}/gv/conf && cp -p ${SCRIPTS_DIR}/env_gv ${INSTALL_DIR}/gv/.env
+RUN cp -p ${COMMON_DIR}/stip-gv/bin/* ${INSTALL_DIR}/gv/bin/ && cp -p ${COMMON_DIR}/stip-gv/conf/* ${INSTALL_DIR}/gv/conf
+RUN ln -s ${INSTALL_DIR}/.env ${INSTALL_DIR}/gv/.env
 RUN cp -p ${SCRIPTS_DIR}/apache/stip-gv-ssl.conf /etc/apache2/sites-available
 RUN a2ensite stip-gv-ssl
 
@@ -56,13 +59,24 @@ RUN a2ensite stip-gv-ssl
 WORKDIR /stip-common
 RUN git clone https://github.com/s-tip/stip-sns.git
 RUN mkdir -p ${INSTALL_DIR}/sns/bin ${INSTALL_DIR}/sns/media/cache ${INSTALL_DIR}/sns/staticfiles
-RUN cp -pr ${COMMON_DIR}/stip-sns/bin ${INSTALL_DIR}/sns && cp -pr ${COMMON_DIR}/stip-sns/media ${INSTALL_DIR}/sns && cp -pr ${SCRIPTS_DIR}/env_sns ${INSTALL_DIR}/sns/.env && cp -p ${SCRIPTS_DIR}/apache/stip-sns-ssl.conf /etc/apache2/sites-available
+RUN cp -pr ${COMMON_DIR}/stip-sns/bin ${INSTALL_DIR}/sns && cp -pr ${COMMON_DIR}/stip-sns/media ${INSTALL_DIR}/sns && cp -p ${SCRIPTS_DIR}/apache/stip-sns-ssl.conf /etc/apache2/sites-available
+RUN ln -s ${INSTALL_DIR}/.env ${INSTALL_DIR}/sns/.env
 RUN ln -s ${COMMON_DIR}/stip-sns/src ${INSTALL_DIR}/sns/src
 RUN a2ensite stip-sns-ssl
 
+# stip-txs2 setup
+WORKDIR /stip-common
+RUN git clone https://github.com/s-tip/stip-txs2.git
+RUN mkdir -p ${INSTALL_DIR}/txs2/bin ${INSTALL_DIR}/txs2/staticfiles
+RUN cp -pr ${COMMON_DIR}/stip-txs2/bin ${INSTALL_DIR}/txs2 && cp -p ${SCRIPTS_DIR}/apache/stip-txs2-ssl.conf /etc/apache2/sites-available && cp -p ${SCRIPTS_DIR}/apache/stip-txs2-console-ssl.conf /etc/apache2/sites-available
+RUN ln -s ${INSTALL_DIR}/.env ${INSTALL_DIR}/txs2/.env
+RUN ln -s ${COMMON_DIR}/stip-txs2/src ${INSTALL_DIR}/txs2/src
+RUN a2ensite stip-txs2-ssl
+RUN a2ensite stip-txs2-console-ssl
+
 # modification for docker image
 ## mysql/mongo hostname
-RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/rs/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/gv/.env && echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/sns/.env
+RUN echo "MYSQL_HOST=mysql" >> ${INSTALL_DIR}/.env
 RUN sed -i".org" 's/"host": "localhost"/"host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/fixtures/mongo.json
 RUN sed -i".org" 's/"circl_mongo_host": "localhost"/"circl_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json
 RUN sed -i 's/"attck_mongo_host": "localhost"/"attck_mongo_host": "mongo"/g' ${COMMON_DIR}/stip-rs/src/ctirs/models/sns/config/fixture/sns_config.json

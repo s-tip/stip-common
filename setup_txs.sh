@@ -24,5 +24,6 @@ cp -pr $COMMON_DIR/stip-txs/conf $INSTALL_DIR/txs
 cp -p $COMMON_DIR/stip-txs/init.d/supervisord.conf /etc/supervisor/
 cp -p $COMMON_DIR/stip-txs/init.d/conf.d/stip-taxii-server.ini /etc/supervisor/conf.d/
 ln -s $COMMON_DIR/stip-txs/src $INSTALL_DIR/txs/src
+ln -s $INSTALL_DIR/.env $INSTALL_DIR/txs/.env
 ln -s $COMMON_DIR/stip-txs/version $INSTALL_DIR/txs/version
 chown -R stip:stip $INSTALL_DIR/txs

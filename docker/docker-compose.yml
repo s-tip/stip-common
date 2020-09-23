@@ -10,6 +10,8 @@ services:
      - "443:443"
      - "10000:10000"
      - "10001:10001"
+     - "8443:8443"
+     - "8444:8444"
     environment:
       MYSQL_DATABASE: s_tip
       MYSQL_USER: stip
