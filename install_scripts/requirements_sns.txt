@@ -5,7 +5,6 @@ pdfminer.six
 pillow
 stix-validator
 pymongo>=3.10.1
-stix2-slider
 reportlab
 jira
 taxii2-client>=2.0.0
@@ -13,3 +12,5 @@ iocextract
 beautifulsoup4
 splunk-sdk
 nest-asyncio
+qrcode
+

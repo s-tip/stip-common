@@ -13,26 +13,20 @@
     	  <img src="/static/img/stip-logo.png" class="stip-logo-img"/>
 	  </div>
       <h2 class="h2-stip">S-TIP</h2>
-      <form method="post" action="{% url 'login' %}" role="form">
+      <form method="post" action="{% url 'login_totp' %}" role="form">
         {% csrf_token %}
         <div class="form-group">
-          <label for="username" style="font-weight:normal;">Username</label>
-          <input type="text" class="form-control" id="username" name="username">
-        </div>
-        <div class="form-group">
-          <label for="password" style="font-weight:normal;">Password</label>
-          <input type="password" class="form-control" id="password" name="password">
+          <label for="authcode" style="font-weight:normal;">Authentication Code</label>
+          <input type="text" class="form-control" id="authcode" name="authcode">
         </div>
         <br/>
         <div class="form-group">
           <button type="submit" class="btn btn-default submit">Log in</button>
         </div>
       </form>
-      <div id="error_msg">
-        {% if error_msg %}
-          {{ error_msg }}
-        {% endif %}
-      </div>
+      {% if error_msg %}
+        <div id="error_msg">{{ error_msg }}</div>
+      {% endif %}
     </div>
   </div>
 {% endblock body %}

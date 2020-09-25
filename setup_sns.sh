@@ -20,7 +20,7 @@ mkdir -p $INSTALL_DIR/sns/media/cache
 cp -pr $COMMON_DIR/stip-sns/bin $INSTALL_DIR/sns
 cp -pr $COMMON_DIR/stip-sns/media $INSTALL_DIR/sns
 ln -s $COMMON_DIR/stip-sns/src $INSTALL_DIR/sns/src
-cp -pr $SCRIPTS_DIR/env_sns $INSTALL_DIR/sns/.env
+ln -s $INSTALL_DIR/.env $INSTALL_DIR/sns/.env
 ln -s $COMMON_DIR/stip-sns/version $INSTALL_DIR/sns/version
 mkdir $INSTALL_DIR/sns/staticfiles
 chown -R stip:stip $INSTALL_DIR/sns
