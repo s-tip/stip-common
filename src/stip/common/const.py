@@ -15,6 +15,8 @@ STIP_SNS_CI_KEY = 'Critical Infrastructure'
 STIP_SNS_REFERRED_URL_KEY = 'Referred URL'
 STIP_SNS_STIX2_PACKAGE_ID_KEY = 'STIX2 Package ID'
 
+# SNS feeds.views
+HASHTAG_CHARACTER_LENGTH_LIMIT = '100'
 
 STIP_STIX2_X_STIP_SNS_TYPE = 'x-stip-sns'
 
