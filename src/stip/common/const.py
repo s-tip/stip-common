@@ -15,7 +15,6 @@ STIP_SNS_CI_KEY = 'Critical Infrastructure'
 STIP_SNS_REFERRED_URL_KEY = 'Referred URL'
 STIP_SNS_STIX2_PACKAGE_ID_KEY = 'STIX2 Package ID'
 
-
 STIP_STIX2_X_STIP_SNS_TYPE = 'x-stip-sns'
 
 STIP_STIX2_PROP_TYPE = 'x_stip_sns_type'
@@ -155,3 +154,5 @@ SHARING_RANGE_CHOICES = (
     (SHARING_RANGE_TYPE_KEY_GROUP, 'With a group'),
     (SHARING_RANGE_TYPE_KEY_PEOPLE, 'With people'),
 )
+
+MAX_HASHTAG_LENGTH = 100
