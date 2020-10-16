@@ -1,5 +1,4 @@
 import re
-import string
 import stip.common.const as const
 
 sharp_underbar_reg = re.compile('^#_+$')
@@ -20,3 +19,4 @@ def is_tag(word):
     if re.match(sharp_underbar_numeric_reg, word):
         return False
     return True
+
