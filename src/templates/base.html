@@ -15,6 +15,8 @@
     <![endif]-->
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/typeahead.bundle.js' %}"></script>
+    <script src="{% static 'js/bloodhound.js' %}"></script>
     <script type="text/javascript" src="/jsi18n/pacakge_name/"></script>
     {% block head %}{% endblock %}
     {% if sns_base_body_color %}
@@ -58,9 +60,9 @@
             </ul>
             {% if not hide_search %}
             <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">
-              <div class="input-group" style="width:210px">
-                <input type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
-                <span class="input-group-btn">
+              <div id="search-bar" class="input-group">
+                <input id="search-text" type="text" class="form-control hash-suggest" name="q" placeholder="{% trans 'Search' %}">
+                <span id="search-button" class="input-group-btn">
                   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
               </div>
