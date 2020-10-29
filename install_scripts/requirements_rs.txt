@@ -18,7 +18,7 @@ pymongo>=3.10.1
 bleach
 pymisp
 Unipath
-slackclient>=2.8.2
+slackclient>=2.9.3
 maec
 misp_stix_converter
 cybox>=2.1.0.21
