@@ -15,8 +15,7 @@
     <![endif]-->
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/typeahead.bundle.js' %}"></script>
-    <script src="{% static 'js/bloodhound.js' %}"></script>
+    <script src="{% static 'js/suggest.js' %}"></script>
     <script type="text/javascript" src="/jsi18n/pacakge_name/"></script>
     {% block head %}{% endblock %}
     {% if sns_base_body_color %}
@@ -65,6 +64,7 @@
                 <span id="search-button" class="input-group-btn">
                   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
+                <div id="suggest" style="display:none;"></div>
               </div>
             </form>
             {% endif %}

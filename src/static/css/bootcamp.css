@@ -93,19 +93,6 @@ div.navbar-header img.user {
   border: none;
 }
 
-.tt-dataset{
-  border: 1px solid #ccc;
-}
-
-.tt-suggestion{
-  padding: 6px 12px;
-  background-color: #fff;
-}
-
-.tt-suggestion:hover{
-  background-color: #bbb;
-}
-
 #search-text{
   width:190px;
 }
@@ -115,4 +102,28 @@ div.navbar-header img.user {
   position: relative;
   vertical-align: top;
   display: inline-block;
+}
+
+#suggest {
+  position: absolute;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCFF;
+  font-size: 90%;
+  width: 190px;
+}
+
+#suggest div {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 2px;
+}
+
+#suggest div.select{
+  color: #FFFFFF;
+  background-color: #3366FF;
+}
+
+#suggest div.over{
+  background-color: #99CCFF;
 }
