@@ -424,6 +424,9 @@ Suggest.copyProperties(Suggest.LocalMulti.prototype, Suggest.Local.prototype);
 
 Suggest.LocalMulti.prototype.delim = ' '; // delimiter
 
+// White space string. Same as regular expression "\s"
+Suggest.LocalMulti.prototype.multiDelim = '\u0020\u000c\u000a\u000d\u0009\u000b\u00a0\u1680\u180e\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u2028\u2029\u202f\u205f\u3000\ufeff';
+
 Suggest.LocalMulti.prototype.keyEventReturn = function() {
 
   this.clearSuggestArea();
@@ -489,6 +492,12 @@ Suggest.LocalMulti.prototype.setInputText = function(text) {
 };
 
 Suggest.LocalMulti.prototype.getLastTokenPos = function() {
-  return this.input.value.lastIndexOf(this.delim);
-};
 
+  var maxIndex = -1;
+
+  for (var char of this.multiDelim) {
+    index = this.input.value.lastIndexOf(char);
+    maxIndex = Math.max(maxIndex, index);
+  }
+  return maxIndex;
+};
