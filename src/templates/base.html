@@ -60,11 +60,11 @@
             {% if not hide_search %}
             <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">
               <div id="search-bar" class="input-group">
-                <input id="search-text" type="text" class="form-control hash-suggest" name="q" placeholder="{% trans 'Search' %}">
+                <input id="search-text" type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
                 <span id="search-button" class="input-group-btn">
                   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
-                <div id="suggest" style="display:none;"></div>
+                <div id="search-suggest" class="hash-suggest"></div>
               </div>
             </form>
             {% endif %}
