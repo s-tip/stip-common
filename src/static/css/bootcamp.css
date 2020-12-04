@@ -104,7 +104,7 @@ div.navbar-header img.user {
   display: inline-block;
 }
 
-.hash-suggest {
+#suggest-block {
   position: fixed;
   z-index: 1000;
   min-width: 150px;
@@ -114,18 +114,18 @@ div.navbar-header img.user {
   border: 1px solid #CCCCFF;
 }
 
-.hash-suggest div {
+#suggest-block div {
   display: block;
   overflow: hidden;
   white-space: nowrap;
   padding: 2px 10px;
 }
 
-.hash-suggest div.select{
+#suggest-block div.select{
   color: #FFFFFF;
   background-color: #3366FF;
 }
 
-.hash-suggest div.over{
+#suggest-block div.over{
   background-color: #99CCFF;
 }
