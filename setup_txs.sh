@@ -11,10 +11,11 @@ chown -R stip:stip stip-txs
 apt install -y gunicorn3
 
 ## pip install
-pip3 install supervisor>=4.1.0
+pip3 install 'supervisor>=4.1.0'
 pip3 install 'gunicorn>=19.10,<20.0'
 pip3 install libtaxii
 pip3 install opentaxii==0.1.7
+pip3 install anyconfig==0.9.10
 
 # copy TXS setting
 mkdir -p $INSTALL_DIR/txs
