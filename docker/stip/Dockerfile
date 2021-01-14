@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # apt install
 ## for docker image
 RUN apt update && apt install -y \
-    git python3.6 sudo dialog systemd
+    git python3.6 sudo dialog
 ## for stip-rs & stip-sns
 RUN apt install -y \
     python3-pip apache2 libapache2-mod-wsgi-py3 libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev libssl-dev \
@@ -16,6 +16,7 @@ RUN apt update && apt install -y \
     mongodb-org \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y systemd
 
 # env
 ENV INSTALL_DIR=/opt/s-tip \
