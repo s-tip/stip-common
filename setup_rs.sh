@@ -7,10 +7,6 @@ SCRIPTS_DIR=$COMMON_DIR/install_scripts
 if [ -f /etc/lsb-release ]; then
     . /etc/lsb-release
     echo "Ubuntu Codename: $DISTRIB_CODENAME"
-    if [ $DISTRIB_CODENAME = "focal" ]; then
-        echo "Distribution focal detected. Use BIONIC mongo package instead of focal temporarily."
-        DISTRIB_CODENAME=bionic
-    fi
 else
     echo "This script only works on Ubuntu."
     exit 1
@@ -51,9 +47,10 @@ a2enconf fqdn
 a2enmod ssl
 a2ensite stip-rs-ssl
 
-# for MongoDB 4.0
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-echo "deb http://repo.mongodb.org/apt/ubuntu $DISTRIB_CODENAME/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+# for MongoDB 4.4
+apt install gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $DISTRIB_CODENAME/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 apt update
 apt install -y mongodb-org
 systemctl start mongod
