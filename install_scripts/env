@@ -5,3 +5,12 @@ MYSQL_PASSWORD=stip
 MYSQL_DBNAME=s_tip
 TIME_ZONE=UTC
 
+# If you would like to switch a application by sub domain name instead of port, set domain name with a leading period.
+# Example:
+# If you would like to set domain name below,
+# RS: rs.s-tip.domain.net
+# SNS: sns.s-tip.domain.net
+# GV: gv.s-tip.domain.net
+# you have to set '.s-tip.domain.net' to COOKIE_DOMAIN_NAME.
+#COOKIE_DOMAIN_NAME=.s-tip.domain.net
+

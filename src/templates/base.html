@@ -16,6 +16,7 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/suggest.js' %}"></script>
+    <script src="{% static 'js/caretposition.js' %}"></script>
     <script type="text/javascript" src="/jsi18n/pacakge_name/"></script>
     {% block head %}{% endblock %}
     {% if sns_base_body_color %}
@@ -47,6 +48,7 @@
               </li>
               <li><a href="{% url 'feeds' %}">{% trans 'Feed' %}</a></li>
               <li><a href="{% url 'network' %}">{% trans 'Users' %}</a></li>
+              <li><a href="{% url 'bulk_upload_entry' %}">{% trans 'Bulk Upload' %}</a></li>
               {% if user.is_admin %}
               <li class="dropdown">
                 <a href="#" id="navbar-configuration" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans 'Management' %}<span class="caret"></span></a>
@@ -60,11 +62,11 @@
             {% if not hide_search %}
             <form class="navbar-form navbar-left" role="search" action="{% url 'search' %}">
               <div id="search-bar" class="input-group">
-                <input id="search-text" type="text" class="form-control hash-suggest" name="q" placeholder="{% trans 'Search' %}">
+                <input id="search-text" type="text" class="form-control" name="q" placeholder="{% trans 'Search' %}">
                 <span id="search-button" class="input-group-btn">
                   <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
-                <div id="suggest" style="display:none;"></div>
+                <div id="suggest-block"></div>
               </div>
             </form>
             {% endif %}
