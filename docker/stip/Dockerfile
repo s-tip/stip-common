@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # apt install
 ## for docker image
 RUN apt update && apt install -y \
-    git python3.6 sudo dialog wget
+    git python3.8 sudo dialog wget
 ## for stip-rs & stip-sns
 RUN apt install -y \
     python3-pip apache2 libapache2-mod-wsgi-py3 libmysqlclient-dev mysql-client python3-dev libpq-dev libssl-dev \
