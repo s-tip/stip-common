@@ -1,17 +1,18 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 # apt install
 ## for docker image
 RUN apt update && apt install -y \
-    git python3.6 sudo dialog
+    git python3.8 sudo dialog wget
 ## for stip-rs & stip-sns
 RUN apt install -y \
-    python3-pip apache2 libapache2-mod-wsgi-py3 libmysqlclient-dev mysql-client-5.7 python3-dev libpq-dev libssl-dev \
+    python3-pip apache2 libapache2-mod-wsgi-py3 libmysqlclient-dev mysql-client python3-dev libpq-dev libssl-dev \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 && echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
+RUN echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 RUN apt update && apt install -y \ 
     mongodb-org \
  && apt clean \
