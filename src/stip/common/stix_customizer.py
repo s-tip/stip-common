@@ -76,7 +76,6 @@ class StixCustomizer(object):
 
                 co_properties.append(('name', StringProperty(required=True)))
                 co_properties.append(('description', StringProperty(required=True)))
-                co_properties.append(('x_stip_value', DictionaryProperty(required=True)))
                 @CustomObject(o_['name'], co_properties)
                 class CutomObjectTemp:
                     pass
