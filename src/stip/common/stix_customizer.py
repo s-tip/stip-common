@@ -6,7 +6,7 @@ from stix2.v21.sdo import CustomObject
 
 class StixCustomizer(object):
     __instance = None
-    ALLOWD_TYPE = ['string', 'list']
+    ALLOWD_TYPE = ['string', 'list', 'dictionary']
 
     @staticmethod
     def get_instance():
@@ -57,22 +57,23 @@ class StixCustomizer(object):
                     if prop['type'] not in self.ALLOWD_TYPE:
                         print('Invalid type. skip!!: ' + prop['type'])
                         continue
-                    # co_properties.append((prop['name'], StringProperty(required=prop['required'])))
-                    co_properties.append((prop['name'], StringProperty(required=False)))
-                    if 'regexp' in prop:
-                        try:
-                            prop['pattern'] = re.compile(prop['regexp'])
-                        except Exception:
-                            print('Invalid regexp. skip!!: ' + prop['regexp'])
-                            continue
-                    else:
-                        prop['pattern'] = None
-                    if o_['name'] in custom_objects_dict:
-                        if prop['name'] not in custom_objects_dict[o_['name']]:
-                            custom_objects_dict[o_['name']].append(prop['name'])
-                    else:
-                        custom_objects_dict[o_['name']] = [prop['name']]
-                    properties.append(prop)
+
+                    if prop['type'] == 'dictionary':
+                        co_properties.append((prop['name'], DictionaryProperty(required=False)))
+                        for k in prop['dictionary']:
+                            new_prop = prop.copy()
+                            new_prop['name'] = '%s/%s' % (prop['name'], k)
+                            custom_objects_dict = self._append_custom_object_dict(
+                                custom_objects_dict, o_['name'], new_prop['name'])
+                            new_prop['pattern'] = self._get_pattern(prop['dictionary'][k])
+                            del(new_prop['dictionary'])
+                            properties.append(new_prop)
+                    elif prop['type'] == 'string':
+                        co_properties.append((prop['name'], StringProperty(required=False)))
+                        custom_objects_dict = self._append_custom_object_dict(
+                            custom_objects_dict, o_['name'], prop['name'])
+                        prop['pattern'] = self._get_pattern_type_string(prop)
+                        properties.append(prop)
 
                 co_properties.append(('name', StringProperty(required=True)))
                 co_properties.append(('description', StringProperty(required=True)))
@@ -88,6 +89,28 @@ class StixCustomizer(object):
         for key in custom_objects_dict:
             custom_objects_dict[key] = sorted(list(set(custom_objects_dict[key])))
         self.custom_objects_dict = custom_objects_dict
+
+    def _get_pattern_type_string(self, prop):
+        if 'regexp' in prop:
+            return self._get_pattern(prop['regexp'])
+        return None
+
+    def _get_pattern(self, pattern):
+        if pattern is None:
+            return
+        try:
+            return re.compile(pattern)
+        except Exception:
+            print('Invalid regexp. skip!!: ' + pattern)
+            return None
+
+    def _append_custom_object_dict(self, d, obj_name, prop_name):
+        if obj_name in d:
+            if prop_name not in d[obj_name]:
+                d[obj_name].append(prop_name)
+        else:
+            d[obj_name] = [prop_name]
+        return d
 
     def get_custom_object_list(self):
         return sorted(self.custom_objects_dict.keys())
