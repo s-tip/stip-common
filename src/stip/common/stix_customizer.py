@@ -22,6 +22,7 @@ class StixCustomizer(object):
         self.conf_json = None
         self.custom_objects = []
         self.custom_properties = []
+        self.custom_objects_dict = {}
 
     def init_customizer_conf(self, conf_file_path):
         with open(conf_file_path, 'r') as fp:
@@ -113,6 +114,8 @@ class StixCustomizer(object):
         return d
 
     def get_custom_object_list(self):
+        if not hasattr(self, 'custom_objects_dict'):
+            return []
         return sorted(self.custom_objects_dict.keys())
 
     def get_custom_object_dict(self):
