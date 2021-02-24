@@ -25,7 +25,7 @@ class StixCustomizer(object):
         self.custom_objects_dict = {}
 
     def init_customizer_conf(self, conf_file_path):
-        with open(conf_file_path, 'r') as fp:
+        with open(conf_file_path, 'r', encoding='utf-8') as fp:
             j = json.load(fp)
         objects = []
         custom_objects_dict = {}
@@ -35,7 +35,7 @@ class StixCustomizer(object):
                     print('No name in an object. skip!!')
                     continue
                 if not o_['name'].startswith('x-'):
-                    print('Invalide name. skip!!: ' + o_['name'])
+                    print('Invalid name. skip!!: ' + o_['name'])
                     continue
                 if 'properties' not in o_:
                     print('No properties in an object. skip!!')
@@ -47,7 +47,7 @@ class StixCustomizer(object):
                         print('No name in a property. skip!!')
                         continue
                     if not prop['name'].startswith('x_'):
-                        print('Invalide name. skip!!: ' + prop['name'])
+                        print('Invalid name. skip!!: ' + prop['name'])
                         continue
                     # if 'required' not in prop:
                     #    print('No required in a property. skip!!')

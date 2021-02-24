@@ -19,7 +19,7 @@ class MatchingCustomizer(object):
         self.conf_json = None
 
     def init_customizer_conf(self, conf_file_path):
-        with open(conf_file_path, 'r') as fp:
+        with open(conf_file_path, 'r', encoding='utf-8') as fp:
             j = json.load(fp)
         matching_patterns = []
         if 'matching_patterns' in j:
@@ -78,4 +78,8 @@ class MatchingCustomizer(object):
         }
 
     def get_matching_patterns(self):
+        if self.conf_json is None:
+            return []
+        if 'matching_patterns' not in self.conf_json:
+            return []
         return self.conf_json['matching_patterns']
