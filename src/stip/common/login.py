@@ -13,7 +13,7 @@ def _get_login_authcode(request):
 
 
 def login(request, redirect_to, password_modified_to='password_modified'):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect(redirect_to)
 
     replace_dict = {}
