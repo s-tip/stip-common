@@ -1,5 +1,6 @@
 import re
 import json
+from stix2 import registry
 from stix2.properties import StringProperty, DictionaryProperty
 from stix2.v21.sdo import CustomObject
 
@@ -23,8 +24,15 @@ class StixCustomizer(object):
         self.custom_objects = []
         self.custom_properties = []
         self.custom_objects_dict = {}
+        self.conf_file_path = ''
+
+    def update_customizer_conf(self, conf_json):
+        with open(self.conf_file_path, 'w', encoding='utf-8') as fp:
+            json.dump(conf_json, fp, indent=4, ensure_ascii=False)
+        self.init_customizer_conf(self.conf_file_path)
 
     def init_customizer_conf(self, conf_file_path):
+        self.conf_file_path = conf_file_path
         with open(conf_file_path, 'r', encoding='utf-8') as fp:
             j = json.load(fp)
         objects = []
@@ -78,6 +86,9 @@ class StixCustomizer(object):
 
                 co_properties.append(('name', StringProperty(required=True)))
                 co_properties.append(('description', StringProperty(required=True)))
+                if(o_['name'] in registry.STIX2_OBJ_MAPS['2.1']['objects']):
+                    print('exist')
+                    del(registry.STIX2_OBJ_MAPS['2.1']['objects'][o_['name']])
                 @CustomObject(o_['name'], co_properties)
                 class CutomObjectTemp:
                     pass
