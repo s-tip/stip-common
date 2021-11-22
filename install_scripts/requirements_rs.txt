@@ -16,7 +16,7 @@ stix2-slider>=3.0.0
 python-decouple
 pymongo>=3.10.1
 bleach
-pymisp<2.4.140
+pymisp<2.4.152
 Unipath
 slackclient>=2.9.3
 maec
