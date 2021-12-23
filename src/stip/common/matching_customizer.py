@@ -3,7 +3,6 @@ import json
 
 class MatchingCustomizer(object):
     __instance = None
-    ALLOWD_TYPE = ['Exact']
 
     @staticmethod
     def get_instance():
@@ -17,8 +16,15 @@ class MatchingCustomizer(object):
         else:
             MatchingCustomizer.__instance = self
         self.conf_json = None
+        self.conf_file_path = ''
+
+    def update_customizer_conf(self, conf_json):
+        with open(self.conf_file_path, 'w', encoding='utf-8') as fp:
+            json.dump(conf_json, fp, indent=4, ensure_ascii=False)
+        self.init_customizer_conf(self.conf_file_path)
 
     def init_customizer_conf(self, conf_file_path):
+        self.conf_file_path = conf_file_path
         with open(conf_file_path, 'r', encoding='utf-8') as fp:
             j = json.load(fp)
         matching_patterns = []
@@ -33,13 +39,6 @@ class MatchingCustomizer(object):
                         print('Duplicate a name. skip!!')
                         continue
                 matching_pattern['name'] = pattern['name']
-                if 'type' not in pattern:
-                    print('No type in a matching_pattern. skip!!')
-                    continue
-                if pattern['type'] not in self.ALLOWD_TYPE:
-                    print('Invalid type. skip!!: ' + pattern['type'])
-                    continue
-                matching_pattern['type'] = pattern['type']
                 if 'targets' not in pattern:
                     print('No targets in a matching_pattern. skip!!')
                     continue
@@ -51,14 +50,8 @@ class MatchingCustomizer(object):
                     if 'object' not in target:
                         print('No object in a target. skip!!')
                         continue
-                    if not target['object'].startswith('x-'):
-                        print('Invalid object. skip!!: ' + target['object'])
-                        continue
                     if 'property' not in target:
                         print('No property in a target. skip!!')
-                        continue
-                    if not target['property'].startswith('x_'):
-                        print('Invalid property. skip!!: ' + target['property'])
                         continue
                     l_ = target['property'].split('/')
                     prop = '--'.join(l_)
