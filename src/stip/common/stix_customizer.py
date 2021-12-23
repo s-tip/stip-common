@@ -87,7 +87,6 @@ class StixCustomizer(object):
                 co_properties.append(('name', StringProperty(required=True)))
                 co_properties.append(('description', StringProperty(required=True)))
                 if(o_['name'] in registry.STIX2_OBJ_MAPS['2.1']['objects']):
-                    print('exist')
                     del(registry.STIX2_OBJ_MAPS['2.1']['objects'][o_['name']])
                 @CustomObject(o_['name'], co_properties)
                 class CutomObjectTemp:
