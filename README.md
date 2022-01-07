@@ -4,6 +4,8 @@
 
 S-TIP is a threat intelligence platform to bring down barriers among separate practices of CTI sharing.
 
+Note: We plan to release STIX Custom Object support and related features soon.
+
 ## Requirements
 
 * **Python 3.6+**
