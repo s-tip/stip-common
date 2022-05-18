@@ -40,7 +40,7 @@ def login(request, redirect_to, password_modified_to='password_modified'):
 
 
 def login_totp(request, redirect_to, password_modified_to='password_modified'):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect(redirect_to)
 
     replace_dict = {}
