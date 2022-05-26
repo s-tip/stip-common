@@ -39,6 +39,7 @@ class MatchingCustomizer(object):
                         print('Duplicate a name. skip!!')
                         continue
                 matching_pattern['name'] = pattern['name']
+                matching_pattern['type'] = pattern['type']
                 if 'targets' not in pattern:
                     print('No targets in a matching_pattern. skip!!')
                     continue
