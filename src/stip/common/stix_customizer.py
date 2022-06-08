@@ -71,7 +71,7 @@ class StixCustomizer(object):
                         co_properties.append((prop['name'], DictionaryProperty(required=False)))
                         for k in prop['dictionary']:
                             new_prop = prop.copy()
-                            new_prop['name'] = '%s/%s' % (prop['name'], k)
+                            new_prop['name'] = '%s.%s' % (prop['name'], k)
                             custom_objects_dict = self._append_custom_object_dict(
                                 custom_objects_dict, o_['name'], new_prop['name'])
                             new_prop['pattern'] = self._get_pattern(prop['dictionary'][k])
