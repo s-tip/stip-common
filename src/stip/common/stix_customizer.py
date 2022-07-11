@@ -8,6 +8,7 @@ from stix2.v21.sdo import CustomObject
 class StixCustomizer(object):
     __instance = None
     ALLOWD_TYPE = ['string', 'list', 'dictionary']
+    DICT_PROP_DIVINDER = '--'
 
     @staticmethod
     def get_instance():
