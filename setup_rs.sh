@@ -29,9 +29,11 @@ mkdir -p $INSTALL_DIR/rs/bin
 mkdir -p $INSTALL_DIR/rs/community
 mkdir -p $INSTALL_DIR/rs/data
 mkdir -p $INSTALL_DIR/rs/staticfiles
+mkdir -p $INSTALL_DIR/rs/conf
 ln -s $COMMON_DIR/stip-rs/src $INSTALL_DIR/rs/src
 cp -p $COMMON_DIR/stip-rs/bin/* $INSTALL_DIR/rs/bin/
 cp -p $COMMON_DIR/stip-rs/data/* $INSTALL_DIR/rs/data/
+cp -p $COMMON_DIR/stip-rs/conf/* $INSTALL_DIR/rs/conf/
 cp -p $SCRIPTS_DIR/env $INSTALL_DIR/.env
 ln -s $INSTALL_DIR/.env $INSTALL_DIR/rs/.env
 ln -s $COMMON_DIR/stip-rs/version $INSTALL_DIR/rs/version
