@@ -41,6 +41,10 @@ chown -R stip:stip $INSTALL_DIR
 # init SECRET_KEY
 $COMMON_DIR/rs/bin/setup_env.py $INSTALL_DIR/.env
 
+# for Logger
+mkdir /var/log/audit
+chown -R stip:stip /var/log/audit
+
 # for Apache2
 cp -p $SCRIPTS_DIR/apache/ports.conf /etc/apache2/
 cp -p $SCRIPTS_DIR/apache/stip-rs-ssl.conf /etc/apache2/sites-available
