@@ -34,8 +34,11 @@ class StixCustomizer(object):
 
     def init_customizer_conf(self, conf_file_path):
         self.conf_file_path = conf_file_path
-        with open(conf_file_path, 'r', encoding='utf-8') as fp:
-            j = json.load(fp)
+        try:
+            with open(conf_file_path, 'r', encoding='utf-8') as fp:
+                j = json.load(fp)
+        except Exception:
+            return
         objects = []
         custom_objects_dict = {}
         if 'objects' in j:
