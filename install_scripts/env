@@ -3,7 +3,14 @@ ALLOWED_HOSTS='*'
 MYSQL_USER=stip
 MYSQL_PASSWORD=stip
 MYSQL_DBNAME=s_tip
+
 TIME_ZONE=UTC
+
+STIX_CUSTOMIZER_CONF_PATH=/opt/s-tip/rs/conf/stix_customizer.conf
+MATCHING_CUSTOMIZER_CONF_PATH=/opt/s-tip/rs/conf/matching_customizer.conf
+
+TXC2_AUDIT_LOG_CONF=/opt/s-tip/rs/conf/txc2_audit_log.conf
+TXS2_AUDIT_LOG_CONF=/opt/s-tip/txs2/conf/txs2_audit_log.conf
 
 # If you would like to switch a application by sub domain name instead of port, set domain name with a leading period.
 # Example:

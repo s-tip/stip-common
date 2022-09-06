@@ -11,9 +11,14 @@ chown -R stip:stip stip-txs2
 apt install -y python3-dev
 apt install -y libpq-dev
 
+## pip install
+pip3 install -r $SCRIPTS_DIR/requirements_txs2.txt
+
 # copy TXS2 setting
 mkdir -p $INSTALL_DIR/txs2
+mkdir -p $INSTALL_DIR/txs2/conf
 cp -pr $COMMON_DIR/stip-txs2/bin $INSTALL_DIR/txs2
+cp -p $COMMON_DIR/stip-txs2/conf/* $INSTALL_DIR/txs2/conf/
 ln -s $COMMON_DIR/stip-txs2/src $INSTALL_DIR/txs2/src
 ln -s $INSTALL_DIR/.env $INSTALL_DIR/txs2/.env
 ln -s $COMMON_DIR/stip-txs2/version $INSTALL_DIR/txs2/version

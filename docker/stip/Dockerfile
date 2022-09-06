@@ -27,7 +27,7 @@ ENV SCRIPTS_DIR ${COMMON_DIR}/install_scripts
 # pip install
 WORKDIR /
 RUN git clone https://github.com/s-tip/stip-common.git
-RUN pip3 install -r ${SCRIPTS_DIR}/requirements_rs.txt -r ${SCRIPTS_DIR}/requirements_gv.txt -r ${SCRIPTS_DIR}/requirements_sns.txt
+RUN pip3 install -r ${SCRIPTS_DIR}/requirements_rs.txt -r ${SCRIPTS_DIR}/requirements_gv.txt -r ${SCRIPTS_DIR}/requirements_sns.txt -r ${SCRIPTS_DIR}/requirements_txs2.txt
 
 # stip-common setup
 RUN mkdir -p ${INSTALL_DIR}/common
@@ -36,9 +36,9 @@ RUN ln -s ${COMMON_DIR}/src ${INSTALL_DIR}/common/src && ln -s ${COMMON_DIR}/img
 # stip-rs setup
 WORKDIR /stip-common
 RUN git clone https://github.com/s-tip/stip-rs.git
-RUN mkdir -p ${INSTALL_DIR}/rs/bin ${INSTALL_DIR}/rs/community ${INSTALL_DIR}/rs/data ${INSTALL_DIR}/rs/staticfiles
+RUN mkdir -p ${INSTALL_DIR}/rs/bin ${INSTALL_DIR}/rs/community ${INSTALL_DIR}/rs/data ${INSTALL_DIR}/rs/staticfiles ${INSTALL_DIR}/rs/conf
 RUN ln -s ${COMMON_DIR}/stip-rs/src ${INSTALL_DIR}/rs/src
-RUN cp -p ${COMMON_DIR}/stip-rs/bin/* ${INSTALL_DIR}/rs/bin/ && cp -p ${COMMON_DIR}/stip-rs/data/* ${INSTALL_DIR}/rs/data/&& cp -p ${SCRIPTS_DIR}/env ${INSTALL_DIR}/.env
+RUN cp -p ${COMMON_DIR}/stip-rs/bin/* ${INSTALL_DIR}/rs/bin/ && cp -p ${COMMON_DIR}/stip-rs/data/* ${INSTALL_DIR}/rs/data/ && cp -p ${SCRIPTS_DIR}/env ${INSTALL_DIR}/.env && cp -p ${COMMON_DIR}/stip-rs/conf/* ${INSTALL_DIR}/rs/conf/
 RUN ln -s ${INSTALL_DIR}/.env ${INSTALL_DIR}/rs/.env
 RUN ${INSTALL_DIR}/rs/bin/setup_env.py ${INSTALL_DIR}/.env
 RUN cp -p ${SCRIPTS_DIR}/apache/ports.conf /etc/apache2/ && cp -p ${SCRIPTS_DIR}/apache/stip-rs-ssl.conf /etc/apache2/sites-available
@@ -46,6 +46,7 @@ RUN sh -c "echo ServerName `hostname` > /etc/apache2/conf-available/fqdn.conf"
 RUN a2enconf fqdn
 RUN a2enmod ssl
 RUN a2ensite stip-rs-ssl
+RUN mkdir /var/log/audit
 
 # stip-gv setup
 WORKDIR /stip-common
@@ -88,3 +89,4 @@ RUN adduser --disabled-password --gecos "" stip && adduser stip stip
 RUN gpasswd -a stip sudo && gpasswd -a stip adm
 RUN chown -R stip:stip ${INSTALL_DIR}
 RUN chown -R stip:stip ${COMMON_DIR}
+RUN chown -R stip:stip /var/log/audit

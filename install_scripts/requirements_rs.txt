@@ -1,4 +1,4 @@
-django>=2.2.24
+django>=3.1
 mongoengine>=0.20.0
 pytz
 apscheduler

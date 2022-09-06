@@ -1,5 +1,8 @@
 import os
-from django.utils.translation import ugettext_lazy
+try:
+    from django.utils.translation import ugettext_lazy as _
+except ImportError:
+    from django.utils.translation import gettext_lazy as _
 
 # SNS feeds.feed_stix より
 # Statement Attachement の prefix
@@ -84,12 +87,12 @@ SNS_SLACK_BOT_ACCOUNT = 'slack'
 
 # SNS から移植
 LANGUAGES = (
-    ('en', ugettext_lazy('English')),
-    ('pt-br', ugettext_lazy('Portuguese')),
-    ('es', ugettext_lazy('Spanish')),
-    ('ja', ugettext_lazy('Japanese')),
-    ('fr', ugettext_lazy('French')),
-    ('zh-cn', ugettext_lazy('Chinese')),
+    ('en', _('English')),
+    ('pt-br', _('Portuguese')),
+    ('es', _('Spanish')),
+    ('ja', _('Japanese')),
+    ('fr', _('French')),
+    ('zh-cn', _('Chinese')),
 )
 # TLPフィールドを追加
 TLP_CHOICES = (
@@ -101,49 +104,49 @@ TLP_CHOICES = (
 
 # ROLEフィールドを追加
 ROLE_CHOICES = (
-    ('admin', ugettext_lazy('ROLE_CHOICE_admin')),
-    ('user', ugettext_lazy('ROLE_CHOICE_user')),
-    ('machine', ugettext_lazy('ROLE_CHOICE_machine')),
-    ('machine_feed_only', ugettext_lazy('ROLE_CHOICE_machine_feed_only')),
-    ('machine_bot', ugettext_lazy('ROLE_CHOICE_machine_bot')),
+    ('admin', _('ROLE_CHOICE_admin')),
+    ('user', _('ROLE_CHOICE_user')),
+    ('machine', _('ROLE_CHOICE_machine')),
+    ('machine_feed_only', _('ROLE_CHOICE_machine_feed_only')),
+    ('machine_bot', _('ROLE_CHOICE_machine_bot')),
 )
 
 SECTOR_GROUP_CHOICES = (
-    ('chemical', ugettext_lazy('SECTOR_GROUP_Chemical Sector')),
-    ('commercial', ugettext_lazy('SECTOR_GROUP_Commercial Facilities Sector')),
-    ('communication', ugettext_lazy('SECTOR_GROUP_Communications Sector')),
-    ('critical', ugettext_lazy('SECTOR_GROUP_Critical Manufacturing Sector')),
-    ('dams', ugettext_lazy('SECTOR_GROUP_Dams Sector')),
-    ('defense', ugettext_lazy('SECTOR_GROUP_Defense Industrial Base Sector')),
-    ('emergency', ugettext_lazy('SECTOR_GROUP_Emergency Services Sector')),
-    ('energy', ugettext_lazy('SECTOR_GROUP_Energy Sector')),
-    ('financial', ugettext_lazy('SECTOR_GROUP_Financial Services Sector')),
-    ('food', ugettext_lazy('SECTOR_GROUP_Food and Agriculture Sector')),
-    ('government', ugettext_lazy('SECTOR_GROUP_Government Facilities Sector')),
-    ('healthcare', ugettext_lazy('SECTOR_GROUP_Healthcare and Public Health Sector')),
-    ('information', ugettext_lazy('SECTOR_GROUP_Information Technology Sector')),
-    ('nuclear', ugettext_lazy('SECTOR_GROUP_Nuclear Reactors, Materials, and Waste Sector')),
-    ('other', ugettext_lazy('SECTOR_GROUP_Other')),
-    ('transport', ugettext_lazy('SECTOR_GROUP_Transportation Systems Sector')),
-    ('water', ugettext_lazy('SECTOR_GROUP_Water and Wastewater Systems Sector')),
+    ('chemical', _('SECTOR_GROUP_Chemical Sector')),
+    ('commercial', _('SECTOR_GROUP_Commercial Facilities Sector')),
+    ('communication', _('SECTOR_GROUP_Communications Sector')),
+    ('critical', _('SECTOR_GROUP_Critical Manufacturing Sector')),
+    ('dams', _('SECTOR_GROUP_Dams Sector')),
+    ('defense', _('SECTOR_GROUP_Defense Industrial Base Sector')),
+    ('emergency', _('SECTOR_GROUP_Emergency Services Sector')),
+    ('energy', _('SECTOR_GROUP_Energy Sector')),
+    ('financial', _('SECTOR_GROUP_Financial Services Sector')),
+    ('food', _('SECTOR_GROUP_Food and Agriculture Sector')),
+    ('government', _('SECTOR_GROUP_Government Facilities Sector')),
+    ('healthcare', _('SECTOR_GROUP_Healthcare and Public Health Sector')),
+    ('information', _('SECTOR_GROUP_Information Technology Sector')),
+    ('nuclear', _('SECTOR_GROUP_Nuclear Reactors, Materials, and Waste Sector')),
+    ('other', _('SECTOR_GROUP_Other')),
+    ('transport', _('SECTOR_GROUP_Transportation Systems Sector')),
+    ('water', _('SECTOR_GROUP_Water and Wastewater Systems Sector')),
 )
 
 # CRITICAL_INFRASTRUCTURE
 CRITICAL_INFRASTRUCTURE_CHOICES = (
-    ('Information and Communication Services', ugettext_lazy('CI_Information and Communication Services')),
-    ('Financial Services', ugettext_lazy('CI_Financial Services')),
-    ('Aviation Services', ugettext_lazy('CI_Aviation Services')),
-    ('Railway Services', ugettext_lazy('CI_Railway Services')),
-    ('Electric Power Supply Services', ugettext_lazy('CI_Electric Power Supply Services')),
-    ('Gas Supply Services', ugettext_lazy('CI_Gas Supply Services')),
-    ('Government and Administrative Services (Including Municipal Government)', ugettext_lazy('CI_Government and Administrative Services (Including Municipal Government)')),
-    ('Medical Services', ugettext_lazy('CI_Medical Services')),
-    ('Water Services', ugettext_lazy('CI_Water Services')),
-    ('Logistics Services', ugettext_lazy('CI_Logistics Services')),
-    ('Chemical Industries', ugettext_lazy('CI_Chemical Industries')),
-    ('Credit Card Services', ugettext_lazy('CI_Credit Card Services')),
-    ('Petroleum Industries', ugettext_lazy('CI_Petroleum Industries')),
-    ('Other', ugettext_lazy('CI_Other')),
+    ('Information and Communication Services', _('CI_Information and Communication Services')),
+    ('Financial Services', _('CI_Financial Services')),
+    ('Aviation Services', _('CI_Aviation Services')),
+    ('Railway Services', _('CI_Railway Services')),
+    ('Electric Power Supply Services', _('CI_Electric Power Supply Services')),
+    ('Gas Supply Services', _('CI_Gas Supply Services')),
+    ('Government and Administrative Services (Including Municipal Government)', _('CI_Government and Administrative Services (Including Municipal Government)')),
+    ('Medical Services', _('CI_Medical Services')),
+    ('Water Services', _('CI_Water Services')),
+    ('Logistics Services', _('CI_Logistics Services')),
+    ('Chemical Industries', _('CI_Chemical Industries')),
+    ('Credit Card Services', _('CI_Credit Card Services')),
+    ('Petroleum Industries', _('CI_Petroleum Industries')),
+    ('Other', _('CI_Other')),
 )
 
 SHARING_GROUP_CSC = 'csc'
