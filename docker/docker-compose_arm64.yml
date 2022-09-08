@@ -2,9 +2,8 @@ version: '3'
 services:
 
   stip:
-    image: seamlesstip/stip
+    image: seamlesstip/stip:2.0-arm64
     platform: linux/arm64
-    build: stip.arm
     restart: always
     ports:
      - "443:443"
