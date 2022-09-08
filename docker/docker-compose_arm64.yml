@@ -1,0 +1,64 @@
+version: '3'
+services:
+
+  stip:
+    image: seamlesstip/stip
+    platform: linux/arm64
+    build: stip.arm
+    restart: always
+    ports:
+     - "443:443"
+     - "10000:10000"
+     - "10001:10001"
+     - "8443:8443"
+     - "8444:8444"
+    environment:
+      MYSQL_DATABASE: s_tip
+      MYSQL_USER: stip
+      MYSQL_PASSWORD: stip
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_HOST: mysql
+      MONGO_HOST: mongo
+    command: ["apachectl", "-D", "FOREGROUND"]
+    volumes:
+      # for Community persistence
+      - ./data/rs_community:/opt/s-tip/rs/community
+      # for Apache logs
+      - ./log/stip:/var/log/apache2
+    depends_on:
+     - mysql
+     - mongo
+
+  mysql:
+    image: mysql:8
+    platform: linux/arm64/v8
+    restart: always
+    environment:
+      MYSQL_DATABASE: s_tip
+      MYSQL_USER: stip
+      MYSQL_PASSWORD: stip
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      # SQL for initial data
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+      # mount dir for DB persistence
+      - ./data/mysql_data:/var/lib/mysql
+      # conf
+      - ./mysql/conf.d:/etc/mysql/conf.d
+
+  mongo:
+    image: mongo:6.0.1
+    platform: linux/arm64/v8
+    restart: always
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    volumes:
+      # mount dir for DB persistence
+      - ./data/mongo_data:/data/db
+
