@@ -11,9 +11,9 @@ RUN apt install -y \
     python3-pip apache2 libapache2-mod-wsgi-py3 libmysqlclient-dev mysql-client python3-dev libpq-dev libssl-dev \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*
-RUN wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
-RUN echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-RUN apt update && apt install -y \ 
+RUN wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | apt-key add -
+RUN echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+RUN apt update && apt install -y \
     mongodb-org \
  && apt clean \
  && rm -rf /var/lib/apt/lists/*

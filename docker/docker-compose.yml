@@ -1,9 +1,9 @@
 version: '3'
 services:
 
-# stip (apache)
   stip:
     image: seamlesstip/stip
+    platform: linux/amd64
     restart: always
     ports:
      - "443:443"
@@ -17,6 +17,7 @@ services:
       MYSQL_PASSWORD: stip
       MYSQL_ROOT_PASSWORD: root
       MYSQL_HOST: mysql
+      MONGO_HOST: mongo
     command: ["apachectl", "-D", "FOREGROUND"]
     volumes:
       # for Community persistence
@@ -27,9 +28,9 @@ services:
      - mysql
      - mongo
 
-# mysql
   mysql:
-    image: mysql:5.7
+    image: mysql:8
+    platform: linux/amd64
     restart: always
     environment:
       MYSQL_DATABASE: s_tip
@@ -48,9 +49,9 @@ services:
       # conf
       - ./mysql/conf.d:/etc/mysql/conf.d
 
-# mongo
   mongo:
-    image: mongo:4.4
+    image: mongo:6.0.1
+    platform: linux/amd64
     restart: always
     ports:
       - "27017:27017"
