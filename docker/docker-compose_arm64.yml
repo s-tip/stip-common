@@ -2,8 +2,8 @@ version: '3'
 services:
 
   stip:
-    image: seamlesstip/stip:2.0-amd64
-    platform: linux/amd64
+    image: seamlesstip/stip:2.0-arm64
+    platform: linux/arm64
     restart: always
     ports:
      - "443:443"
@@ -30,7 +30,7 @@ services:
 
   mysql:
     image: mysql:8
-    platform: linux/amd64
+    platform: linux/arm64/v8
     restart: always
     environment:
       MYSQL_DATABASE: s_tip
@@ -51,7 +51,7 @@ services:
 
   mongo:
     image: mongo:6.0.1
-    platform: linux/amd64
+    platform: linux/arm64/v8
     restart: always
     ports:
       - "27017:27017"
@@ -60,3 +60,4 @@ services:
     volumes:
       # mount dir for DB persistence
       - ./data/mongo_data:/data/db
+

@@ -53,10 +53,10 @@ a2enconf fqdn
 a2enmod ssl
 a2ensite stip-rs-ssl
 
-# for MongoDB 4.4
-apt install gnupg
-wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | apt-key add -
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $DISTRIB_CODENAME/mongodb-org/4.4 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+# for MongoDB 6.0.1
+apt install -y gnupg
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | apt-key add -
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 apt update
 apt install -y mongodb-org
 systemctl start mongod
