@@ -51,6 +51,10 @@ S-TIP GV
 ![S-TIP GV](https://raw.githubusercontent.com/s-tip/stip-common/images/stip-gv.gif "S-TIP GV")
 
 ## Slides in Conferences
+* [34th Annual FIRST conference (in English)](https://youtu.be/pis1O00QEUc)
+
+* [32nd Annual FIRST conference (in English)](https://youtu.be/yAbQGujDMV8)
+
 * [BHUSA 2020 Arsenal (in English)](https://github.com/s-tip/stip-common/raw/images/S-TIP_BH-USA2020-Arsenal_20200805.pptx)
 
 * [Code Blue 2019 conference (in Japanese)](https://www.slideshare.net/codeblue_jp/cb19-seamless-threat-intelligence-platform-stip-by-koji-yamada-toshitaka-satomi)
