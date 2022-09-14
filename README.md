@@ -4,7 +4,9 @@
 
 S-TIP is a threat intelligence platform to bring down barriers among separate practices of CTI sharing.
 
-Note: We plan to release STIX Custom Object support and related features soon.
+The latest version supports STIX Custom Objects/Properties.
+
+Successfully passed STIX 2.1/TAXII 2.1 Plugfest at OASIS.
 
 ## Requirements
 
@@ -49,6 +51,11 @@ S-TIP SNS
 
 S-TIP GV
 ![S-TIP GV](https://raw.githubusercontent.com/s-tip/stip-common/images/stip-gv.gif "S-TIP GV")
+
+## Movies in Conferences
+* [34th Annual FIRST conference (in English)](https://youtu.be/pis1O00QEUc)
+
+* [32nd Annual FIRST conference (in English)](https://youtu.be/yAbQGujDMV8)
 
 ## Slides in Conferences
 * [BHUSA 2020 Arsenal (in English)](https://github.com/s-tip/stip-common/raw/images/S-TIP_BH-USA2020-Arsenal_20200805.pptx)
