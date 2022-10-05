@@ -21,3 +21,9 @@ TXS2_AUDIT_LOG_CONF=/opt/s-tip/txs2/conf/txs2_audit_log.conf
 # you have to set '.s-tip.domain.net' to COOKIE_DOMAIN_NAME.
 #COOKIE_DOMAIN_NAME=.s-tip.domain.net
 
+CSRF_TRUSTED_ORIGINS_RS=[]
+CSRF_TRUSTED_ORIGINS_GV=[]
+CSRF_TRUSTED_ORIGINS_SNS=[]
+CSRF_TRUSTED_ORIGINS_TXS2=[]
+CSRF_TRUSTED_ORIGINS_TXS2_CONSOLE=[]
+
