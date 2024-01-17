@@ -13,7 +13,7 @@
     	  <img src="/static/img/stip-logo.png" class="stip-logo-img"/>
 	  </div>
       <h2 class="h2-stip">S-TIP</h2>
-      <form method="post" action="{% url 'login' %}" role="form">
+      <form method="post" action="{% url 'login' %}" autocomplete="off" role="form">
         {% csrf_token %}
         <div class="form-group">
           <label for="username" style="font-weight:normal;">Username</label>
