@@ -8,6 +8,4 @@ def auth_by_api_key(username, api_key):
         return None
     if user_doc is None:
         return None
-    if user_doc.api_key != api_key:
-        return None
-    return user_doc
+    return user_doc if user_doc.verify_api_key(api_key) else None
