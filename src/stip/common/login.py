@@ -25,6 +25,10 @@ def login(request, redirect_to, password_modified_to='password_modified'):
     except MultiValueDictKeyError:
         return render(request, 'cover.html', replace_dict)
     if user:
+        if len(user.api_key) == 0:
+            api_key = user.change_api_key()
+            user.api_key = api_key
+            user.save()
         request.session['username'] = str(user)
         if user.totp_secret is None:
             auth_login(request, user)
