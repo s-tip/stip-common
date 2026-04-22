@@ -4,7 +4,7 @@ bleach
 pdfminer.six
 pillow
 stix-validator
-pymongo>=3.10.1
+pymongo>=4.17.0
 reportlab
 jira
 taxii2-client>=2.0.0
