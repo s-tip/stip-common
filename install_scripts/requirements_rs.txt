@@ -7,7 +7,7 @@ IPy
 stix>=1.2.0.10
 stix2-elevator>=4.0.1
 stix2-validator>=3.0.0
-stix2>=3.0.0
+stix2>=3.0.2
 six>=1.15.0
 libtaxii
 mysqlclient
