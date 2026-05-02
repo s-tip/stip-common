@@ -14,7 +14,7 @@ mysqlclient
 stix2-patterns>=1.3.2
 stix2-slider>=3.0.0
 python-decouple
-pymongo>=3.10.1
+pymongo>=4.17.0
 bleach
 pymisp>=2.4.161
 Unipath
