@@ -5,7 +5,7 @@ apscheduler
 requests
 IPy
 stix>=1.2.0.10
-stix2-elevator>=4.0.1
+stix2-elevator>=4.1.7
 stix2-validator>=3.0.0
 stix2>=3.0.0
 six>=1.15.0
